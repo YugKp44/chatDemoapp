@@ -40,7 +40,7 @@ const MessageContainer = ({ onBackUser }) => {
       setLoading(true)
       try {
         if(selectedConversation === null) return ("Waitting for id")
-        const msg = await axios.get(`/api/message/${id}`)
+        const msg = await axios.get(`https://chatx-backend-6fmq.onrender.com/api/message/${id}`)
         console.log(msg);
         const data = await msg.data;
         if (data.success === false) {
@@ -64,7 +64,7 @@ const MessageContainer = ({ onBackUser }) => {
     e.preventDefault();
     setLoading(true)
     try {
-      const sendMsg = await axios.post(`/api/message/send/${id}`, { messages: sendData })
+      const sendMsg = await axios.post(`https://chatx-backend-6fmq.onrender.com/api/message/send/${id}`, { messages: sendData })
       const data = sendMsg.data;
       if (data.success === false) {
         setLoading(false)
