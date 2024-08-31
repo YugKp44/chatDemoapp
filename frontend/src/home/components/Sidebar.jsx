@@ -26,7 +26,7 @@ const Sidebar = ({ onSelectUser }) => {
         const fetchChatUsers = async () => {
             setLoading(true);
             try {
-                const response = await axios.get('/api/user/currentchatters');
+                const response = await axios.get('https://chatx-backend-6fmq.onrender.com/api/user/currentchatters');
                 const data = response.data;
                 if (Array.isArray(data)) {
                     // Validate each user object
@@ -51,7 +51,7 @@ const Sidebar = ({ onSelectUser }) => {
         e.preventDefault();
         setLoading(true);
         try {
-            const search = await axios.get(`/api/user/search?search=${searchInput}`);
+            const search = await axios.get(`https://chatx-backend-6fmq.onrender.com/api/user/search?search=${searchInput}`);
             const data = search.data;
             if (data.success === false) {
                 setLoading(false);
